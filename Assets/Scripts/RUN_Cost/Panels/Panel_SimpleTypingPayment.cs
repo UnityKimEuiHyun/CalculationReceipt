@@ -138,6 +138,18 @@ public class Panel_SimpleTypingPayment : PanelBase
                 script.input_PaymentCost.text = input_typingCost.text;
             }
         }
+        foreach (var prefab_costMain in GameManager._panel_costMain.prefabM_payment)
+        {
+            var script = prefab_costMain.GetComponent<Prefab_Payment>();
+            if (!string.IsNullOrEmpty(input_typingInfo.text))
+            {
+                script.input_payInfo.text = input_typingInfo.text;
+            }
+            if (!string.IsNullOrEmpty(input_typingCost.text))
+            {
+                script.input_payCost.text = input_typingCost.text;
+            }
+        }
     }
     public override void Complete()
     {

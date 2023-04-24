@@ -14,6 +14,7 @@ public class LoginPanelScript : PanelBase
     public Button btn_login;
     public Button btn_newAcc;
     public Button btn_findId, btn_findPw;
+    public Button btn_quit;
 
     public string loginId, loginPw;
 
@@ -25,6 +26,7 @@ public class LoginPanelScript : PanelBase
         btn_findId.onClick.AddListener(Btn_FindIDPanel);
         btn_findPw.onClick.AddListener(Btn_FindPWPanel);
         btn_newAcc.onClick.AddListener(Btn_NewAccountPanel);
+        btn_quit.onClick.AddListener(OnClick_Quit);
     }
     public override void Complete()
     {
@@ -92,5 +94,9 @@ public class LoginPanelScript : PanelBase
         var asset = Resources.Load<GameObject>("Prefabs/Panels/panel_NewAccount");
         var prefab = CreatePanel(asset);
         prefab.GetComponent<NewAccountPanelScript>().OnInit();
+    }
+    void OnClick_Quit()
+    {
+        Application.Quit();
     }
 }
